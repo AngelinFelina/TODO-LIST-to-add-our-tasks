@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <h1>TODO LIST</h1>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+             background: linear-gradient(to right, #e0f7fa, #80deea);
+             background: url('https://wallpaperaccess.com/full/1489353.jpg') no-repeat center center fixed;
+    background-size: cover;
+        }
+
+        #input {
+            padding: 10px;
+            font-size: 16px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #list-container {
+            margin-top: 30px;
+            width: 300px;
+            list-style-type: none;
+            padding: 0;
+        }
+         * {
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .input-area {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button.add-btn {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button.add-btn:hover {
+            background-color: #218838;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        li button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            margin-bottom: 12px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #list-container li {
+            background: white;
+            margin-bottom: 10px;
+            padding: 12px 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        #list-container li button {
+            background-color: #dc3545;
+        }
+
+        #list-container li button:hover {
+            background-color: #a71d2a;
+        }
+    </style>
+</head>
+<body>
+<input id="input">
+<button onclick="add()">Add</button>
+<ul id="list-container">
+    <li>Hello
+        <button onclick="deleteitem(event)">Delete</button>
+
+    </li>
+
+
+</ul>
+<script>
+    var ul =document.getElementById("list-container")
+    var input=document.getElementById("input")
+    function add(){
+        var listitem=document.createElement("li")
+        listitem.innerHTML=input.value+"<button onclick=deleteitem(event)>Delete</button>"
+        ul.append(listitem)
+    }
+    function deleteitem(event){
+        event.target.parentElement.remove()
+    }
+</script>
+</body>
+</html>
